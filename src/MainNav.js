@@ -21,7 +21,7 @@ function MainNav(props) {
     setTask(event.target.value); 
   }
 
-  const {AddTask, TaskComplete, TaskEdit, task_type} = useContext(Task);
+  const {AddTask, TaskComplete, TaskEdit, task_type, moveTask, completeTasks, isAllTasksCompleted, catPic, setIsAllTasksCompleted} = useContext(Task);
 
 
   function handleAddTask() {
@@ -45,7 +45,18 @@ function MainNav(props) {
 
 
     return (
-      <main id="main-nav">
+      <main>
+        {isAllTasksCompleted && catPic && (
+        <div className="popup">
+          <h2>Congrats on finishing today's tasks!
+             <br></br>
+             <button className="close" onClick={() => setIsAllTasksCompleted(false)}>x</button>
+             Enjoy this cute cat:</h2>
+          <img id="cat" src={catPic} alt="Cute Cat" />
+        </div>
+        )}
+        
+        <div>
         <h1>{task_type}</h1>
         <ul>
           {props.tasks.map((task, index) => (
@@ -59,12 +70,16 @@ function MainNav(props) {
               <input className="input-task" type="text" defaultValue={task.text} onBlur={(e) => handleTaskEdit(e.target.value, task.text)}></input>
               }
               {!editing && 
-              <input className="input-task" value={task.text} onClick={openEdit}></input>
+              <>
+                <input className="input-task" value={task.text} onClick={openEdit}></input>
+                <button id="input-move-task" onClick={() => moveTask(task.text, task.task_type)}> Move to {task.task_type === "Today" ? "Upcoming" : "Today"} </button>
+              </>
               }
               <hr />
               </li>
           ))}
         </ul>
+
       {!showInput &&
           <button id="add-task-icon" onClick={openInput}>
           <img src={add_task_icon} alt="add icon"/>
@@ -81,6 +96,23 @@ function MainNav(props) {
               <button id="input-add-task" onClick={handleAddTask}>Add Task</button>
           </div>
       </div>}
+
+      <h1 id="completed-box">Completed</h1>
+      <ul>
+          {completeTasks.map((task, index) => (
+            <li key={index}>
+              <input 
+                  type="checkbox" 
+                  checked={task.completed} 
+                  onChange={() => handleTaskComplete(task.text)} 
+              />
+              <input className="input-task" value={task.text}></input>
+              <hr />
+            </li>
+          ))}
+        </ul>
+        </div>
+
       </main>
     );
   }

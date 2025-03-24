@@ -16,19 +16,51 @@ body {
 body > div {
     font-size: 14px;
     font-family: 'Roboto', sans-serif;
+}
+
+.popup {  
+    background-color: #fefefe;
+    margin: 5% auto; 
+    padding: 20px;
+    border: 3px solid #1d3557;
+    border-radius: 5px;
+    width: 80%;
+}
+
+.close {
+    background-color: #f1faee;
+    float: right;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+#cat {
+    width: 80%;
+}
+
+.nav-bar{
     height: 100vh;
     display: grid;
     grid-template-columns: 300px auto;
     grid-template-rows: 50px auto;
 }
 
+.no-nav-bar{
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 50px auto;
+}
+
+
 .header {
-   background-color: #dc4c3e;
+   background-color: #1d3557;
    grid-column: 1/3;
    display: flex;
    justify-content: space-between;
    align-items: center;
-   color: #ffffff;
+   color: white;
    border-top-left-radius: 5px;
    border-top-right-radius: 5px;
 }
@@ -36,36 +68,35 @@ body > div {
 #menu_icon {
     margin-left: 20px;
     border: none;
-    background-color: #dc4c3e;
+    background-color: #1d3557;
 }
 
 
 #quick-find-container {
     display: flex;
     align-items: center;
-    background-color: lightcoral;
+    background-color: #a8dadc;
     border-radius: 5px;
     margin-left: 10px;
 }
 
 #quick-find {
     border: none;
-    background-color: lightcoral;
-    color: white;
+    background-color: #a8dadc;
+    color: gray;
     margin-left: 10px;
     outline: none;
+    font-size: 14px;
 }
 
 #search-icon {
     margin-left: 10px;
-    color: white;
 }
 
 
 #check-icon {
     margin: 5px;
  }
-
 
 
 #header-left-side {
@@ -81,7 +112,7 @@ body > div {
 }
 
 .nav {
-    background-color: #fefbf2;
+    background-color: #f1faee;
     color: black;
 }
 
@@ -107,7 +138,7 @@ main {
 }
 
 main h1{
-    font-size: 20px;
+    font-size: 30px;
 }
 
 main ul {
@@ -128,8 +159,14 @@ main ul li input[type=checkbox] {
     margin-right: 15px;
 }
 
-main ul li input[type=checkbox]:checked {
-    background-color: rgb(11, 7, 11);
+main ul li input[type=checkbox]:checked:after {
+    content: "\2713";
+    color: black;
+    margin-left: 3px;
+}
+
+#completed-box {
+    margin-top: 10%;
 }
 
 #add-task-icon {
@@ -137,7 +174,7 @@ main ul li input[type=checkbox]:checked {
   color:  #7e7d79;
   background-color: white;
   margin-left: 10px;
-  display: flex; 
+  display: flex;  
   gap: 10px;
 }
 
@@ -180,15 +217,28 @@ main ul li input[type=checkbox]:checked {
   padding-right: 15px;
   margin-right: 10px;
   border-radius: 5px;
-  background-color: lightcoral;
+  background-color: #e63946;
   color: white;
 }
 
+#input-move-task {
+    border: none;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-right: 5px;
+    border-radius: 3px;
+    background-color: #a8dadc;
+    color: black;
+  }
+
 .navbar-button {
     border: none;
-    background-color: #fefbf2;
+    background-color: #f1faee;
     display: flex;
     align-items: center;
+    font-size: 14px;
 }
 
  

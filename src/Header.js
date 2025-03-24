@@ -21,7 +21,7 @@ function Header() {
         setFilterChars(event.target.value);
     };
 
-    const { tasks, task_type, totalTasks, uncompleteTasks} = useContext(Task);
+    const {tasks, task_type, totalTasks, completeCount} = useContext(Task);
 
     const [filteredTasks, setFilteredTask] = useState([]);
 
@@ -38,12 +38,12 @@ function Header() {
       changeFilteredTask();
     }, [filterChars, tasks, task_type]);
 
-    const inboxfilteredTasks = tasks.filter(task => !task.completed && task.task_type === "Inbox").length;
     const todayfilteredTasks = tasks.filter(task => !task.completed && task.task_type === "Today").length;
     const upcomingfilteredTasks = tasks.filter(task => !task.completed && task.task_type === "Upcoming").length;
 
     return (
     <>
+        <div className={isOpen ? "nav-bar" : "no-nav-bar"}>
         <header className="header">
         <div id="header-left-side">
           <button id="menu_icon" onClick={toggleMenu}>
@@ -56,11 +56,12 @@ function Header() {
         </div>
         <div id="header-right-side">
           <img id="check-icon" src={check_icon} alt="check icon" />
-          <p id="task-count">{totalTasks} / {uncompleteTasks}</p>
+          <p id="task-count">{completeCount} / {totalTasks}</p>
         </div>
       </header>
-      <NavBar isOpen={isOpen} inboxfilteredTasks={inboxfilteredTasks} todayfilteredTasks={todayfilteredTasks} upcomingfilteredTasks={upcomingfilteredTasks}></NavBar>
+      {isOpen && <NavBar todayfilteredTasks={todayfilteredTasks} upcomingfilteredTasks={upcomingfilteredTasks}></NavBar>}
       <MainNav tasks={filteredTasks}></MainNav>
+      </div>
     </>
     );
   }
