@@ -7,6 +7,7 @@ import { Task } from "./Task";
 function NavBar(props) {
   const {changeTaskType} = useContext(Task);
 
+  // Create buttons on the navigation bar
   const renderButton = (taskType, icon, count) => (
     <li>
       <button className="navbar-button" onClick={() => changeTaskType(taskType)}>
