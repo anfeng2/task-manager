@@ -7,24 +7,25 @@ import { Task } from "./Task";
 function NavBar(props) {
   const {changeTaskType} = useContext(Task);
 
-    return (
-      <nav className="nav">
-        <ul>
-          <li>
-            <button className="navbar-button" onClick={() => changeTaskType("Today")}>
-                <img src={calendar_icon} alt="calendar icon" />
-                <span className="text">Today <span className="count">{props.todayfilteredTasks}</span></span>
-            </button>
-          </li>
-          <li>
-            <button className="navbar-button" onClick={() => changeTaskType("Upcoming")}>
-                <img src={upcoming_icon} alt="upcoming icon" />
-                <span className="text">Upcoming <span className="count">{props.upcomingfilteredTasks}</span></span>
-            </button>
-          </li>
-        </ul>
-      </nav>
-    );
-  }
+  const renderButton = (taskType, icon, count) => (
+    <li>
+      <button className="navbar-button" onClick={() => changeTaskType(taskType)}>
+        <img src={icon} alt={`${taskType} icon`} />
+        <span className="text">
+          {taskType} <span className="count">{count}</span>
+        </span>
+      </button>
+    </li>
+  );
+
+  return (
+    <nav className="nav">
+      <ul>
+        {renderButton("Today", calendar_icon, props.todayfilteredTasks)}
+        {renderButton("Upcoming", upcoming_icon, props.upcomingfilteredTasks)}
+      </ul>
+    </nav>
+  );
+}
   
   export default NavBar;

@@ -18,11 +18,14 @@ body > div {
     font-family: 'Roboto', sans-serif;
 }
 
+button:active {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
 .popup {  
-    background-color: #fefefe;
     margin: 5% auto; 
     padding: 20px;
-    border: 3px solid #1d3557;
+    border: 5px solid #1d3557;
     border-radius: 5px;
     width: 80%;
 }
@@ -30,7 +33,7 @@ body > div {
 .close {
     background-color: #f1faee;
     float: right;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
     border-radius: 5px;
 }
@@ -71,22 +74,25 @@ body > div {
     background-color: #1d3557;
 }
 
-
 #quick-find-container {
     display: flex;
     align-items: center;
-    background-color: #a8dadc;
+    background-color: #457b9d;
     border-radius: 5px;
     margin-left: 10px;
 }
 
 #quick-find {
     border: none;
-    background-color: #a8dadc;
-    color: gray;
+    background-color: #457b9d;
+    color: white;
     margin-left: 10px;
     outline: none;
-    font-size: 14px;
+    font-size: 15px;
+}
+
+::placeholder {
+    color: lightgray;
 }
 
 #search-icon {
@@ -96,7 +102,7 @@ body > div {
 
 #check-icon {
     margin: 5px;
- }
+}
 
 
 #header-left-side {
@@ -127,7 +133,7 @@ body > div {
 
 .nav ul li .count {
     color: #7e7d79;
-    font-size: 12px;
+    font-size: 14px;
 }
 
 
@@ -139,6 +145,7 @@ main {
 
 main h1{
     font-size: 30px;
+    margin-top: 5%;
 }
 
 main ul {
@@ -185,11 +192,6 @@ main ul li input[type=checkbox]:checked:after {
   border-radius: 10px;
 }
 
-#input-right-side {
-  float: right;
-  padding-right: 5px;
-}
-
 .input-task {
   border: none;
   padding: 5px;
@@ -199,29 +201,46 @@ main ul li input[type=checkbox]:checked:after {
   outline: none;
 }
 
-#input-cancel {
-  border: none;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 15px;
-  padding-right: 15px;
-  margin-right: 10px;
-  border-radius: 5px;
+.task-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    padding: 2px;
+}
+
+.task-content {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.fat-button {
+    border: none;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-right: 10px;
+    border-radius: 5px;
+    float: right;
 }
 
 #input-add-task {
-  border: none;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 15px;
-  padding-right: 15px;
-  margin-right: 10px;
-  border-radius: 5px;
-  background-color: #e63946;
-  color: white;
+  background-color: #a8dadc;
+  color: black;
 }
 
-#input-move-task {
+#input-choose-task {
+    background-color: #457b9d;
+    color: white;
+}
+
+#clear-all-task {
+    background-color: #e63946;
+    color: white;
+}
+
+.small-button {
     border: none;
     padding-top: 4px;
     padding-bottom: 4px;
@@ -229,16 +248,26 @@ main ul li input[type=checkbox]:checked:after {
     padding-right: 10px;
     margin-right: 5px;
     border-radius: 3px;
+    float: right;
+}
+
+#input-move-task {
     background-color: #a8dadc;
     color: black;
-  }
+}
+
+#input-trash {
+    background-color: #e63946;
+    color: white;
+}
 
 .navbar-button {
     border: none;
     background-color: #f1faee;
     display: flex;
     align-items: center;
-    font-size: 14px;
+    font-size: 15px;
+    margin-bottom: 10px;
 }
 
  
